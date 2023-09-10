@@ -72,6 +72,7 @@ export default {
 span {
   color: blue;
   text-decoration: underline;
+  cursor: pointer;
 }
 
 span:hover {
