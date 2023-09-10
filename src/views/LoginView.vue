@@ -73,6 +73,6 @@ span {
 }
 
 span:hover {
-  color: rgb(red, rgb(55, 196, 201), blue);
+  color: rgb(55, 196, 201);
 }
 </style>
