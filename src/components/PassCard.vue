@@ -61,7 +61,7 @@ export default {
     },
     copyPass() {
       navigator.clipboard.writeText(this.card.password);
-      alert("Copied the password!");
+      alert("Copied to clipboard");
     },
   },
   emits: ["delete-card", "edit-card"],

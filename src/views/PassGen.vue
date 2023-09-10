@@ -67,7 +67,13 @@
         Generate Password
       </button>
     </form>
-    <h4 id="display">Password will be displayed here: {{ result }}</h4>
+    <div v-if="result != ''">
+      <h4 id="display">Password will be displayed here: {{ result }}</h4>
+      <button id="copyButton" class="auth-btn" @click="copyPassword">Copy Password</button>
+    </div>
+    <div v-else>
+      <h4 id="display">Password will be displayed here: {{ result }}</h4>
+    </div>
   </div>
 </template>
 
@@ -118,6 +124,10 @@ export default {
       }
 
       this.result = generatedPassword;
+    },
+    copyPassword() {
+      navigator.clipboard.writeText(this.result);
+      alert("Copied to clipbaord");
     },
   },
 };
