@@ -184,6 +184,15 @@ body {
   font-size: 20px;
 }
 
+.menu li{
+  transition: font-size 0.2s ease;
+}
+
+.menu li:hover{
+  font-size: 20px;
+}
+
+
 .settings.show .menu {
   cursor: pointer;
   transform: scale(1);
