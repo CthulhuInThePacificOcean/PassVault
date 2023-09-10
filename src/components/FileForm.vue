@@ -104,6 +104,8 @@ export default {
       immediate: true,
       handler(newValue) {
         this.name = newValue.name || "";
+        this.color = newValue.color || "#0000ff";
+        this.hoverColor = newValue.hoverColor || "#0000ff";
         this.tempFile = { ...newValue };
       },
     },
