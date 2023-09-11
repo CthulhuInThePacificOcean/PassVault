@@ -3,7 +3,7 @@
     <button
       type="button"
       id="close-button"
-      @click="$emit('close-file-creation')"
+      @click="closeForm"
     >
       <svg
         stroke="currentColor"
@@ -21,7 +21,7 @@
     </button>
     <div id="fileForm">
       <br />
-      <label class="file-label" for="file-name" v-if="fileFormUpdate"
+      <label class="file-label" for="file-name" v-if="isUpdate"
         >What would you like to change about this folder?</label
       >
       <label for="file-name" class="file-label" v-else
@@ -59,7 +59,7 @@
         type="button"
         class="auth-btn"
         @click="onSubmit"
-        v-if="fileFormUpdate"
+        v-if="isUpdate"
       >
         Update Folder.
       </button>
@@ -82,12 +82,16 @@ export default {
   data() {
     return {
       name: "",
-      isActive: false,
+      //isActive: false,
       tempFile: {},
       isUpdate: false,
       color: "#0000ff",
       hoverColor: "#0000ff",
     };
+  },
+  created() {
+    // Set isUpdate to false when the component is created (page is first loaded).
+    this.isUpdate = false;
   },
   props: {
     fileFormUpdate: Boolean,
@@ -103,10 +107,18 @@ export default {
     folderToUpdate: {
       immediate: true,
       handler(newValue) {
-        this.name = newValue.name || "";
+        if(newValue){
+          this.name = newValue.name || "";
         this.color = newValue.color || "#0000ff";
         this.hoverColor = newValue.hoverColor || "#0000ff";
-        this.tempFile = { ...newValue };
+        this.isUpdate = true; // Set to true when folderToUpdate is provided.
+        } else {
+          // Reset form data when folderToUpdate is not provided (e.g., adding mode).
+          this.name = "";
+          this.color = "#0000ff";
+          this.hoverColor = "#0000ff";
+          this.isUpdate = false;
+        }  
       },
     },
   },
@@ -117,7 +129,7 @@ export default {
         alert("Please enter a name for the file.");
         return;
       }
-      if (this.fileFormUpdate) {
+      if (this.isUpdate) {
         this.folderToUpdate.name = this.name;
         this.folderToUpdate.color = this.color;
         this.folderToUpdate.hoverColor = this.hoverColor;
@@ -137,12 +149,24 @@ export default {
         this.$emit("add-file", item);
       }
 
-      this.name = "";
+      this.resetData(); // Reset the form data
       this.$emit("close-file-creation");
+    },
+    emitForm(){
+      this.$emit('show-popup')
+      this.popupBoxUpdate = false
+      this.resetData(); // Call resetData() when closing the popup
     },
     resetData() {
       this.name = "";
+      this.color = '#0000ff';
+      this.hoverColor = '#0000ff'
     },
+    closeForm(){
+      //this.isUpdate = false;
+      //this.resetData()
+      this.$emit('close-file-creation')
+    }
   },
 };
 </script>

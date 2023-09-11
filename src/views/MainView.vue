@@ -1,6 +1,6 @@
 <template>
   <PopupBox
-    v-show="cardCreationVisible"
+    v-if="cardCreationVisible"
     @show-popup="showPopup"
     @close-popup="closePopup"
     :activeId="this.activeId"
@@ -16,7 +16,7 @@
   </div>
   <div class="flex-container">
     <div class="flex-item flex-item-1">
-      <button id="new-folder-button" @click="toggleFileCreation">
+      <button id="new-folder-button" @click="emitAddFolder">
         Create New Folder
         <svg
           stroke="currentColor"
@@ -138,7 +138,10 @@ export default {
       this.fileFormUpdate = true;
       this.toggleFileCreation();
     },
-
+    emitAddFolder(){
+      this.folderToUpdate = null;
+      this.toggleFileCreation()
+    },
     updateNote(noteId, name, site, user, pass) {
       isUpdate = true;
       updateId = noteId;

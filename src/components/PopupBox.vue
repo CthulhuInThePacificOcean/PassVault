@@ -86,7 +86,7 @@ export default {
           this.password = "";
           this.color = '#0000ff'
         }
-        this.resetData(); // Call resetData() when transitioning between modes
+        //this.resetData(); // Call resetData() when transitioning between modes
       },
     },
   },
@@ -160,6 +160,7 @@ export default {
       this.website = "";
       this.username = "";
       this.password = "";
+      this.color = "#0000ff";
     },
   },
 };
