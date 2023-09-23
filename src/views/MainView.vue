@@ -10,7 +10,7 @@
     @save-file="saveFilesToFirestore"
     :userFiles="userFiles"
   />
-  <h1 v-if="displayName">Welcome {{ displayName }}</h1>
+  <h1 v-if="displayName">Welcome {{ displayName.trim() }}</h1>
   <div class="button-parent">
     <button @click="signOut" class="auth-btn">Sign Out</button>
   </div>
