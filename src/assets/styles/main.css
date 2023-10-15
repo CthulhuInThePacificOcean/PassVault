@@ -248,7 +248,7 @@ body {
 
 .info {
   background-color: aquamarine;
-  width: 600px;
+  width: 400px;
   text-align: center;
   border: 2px dashed #757575;
   border-radius: 15px;
@@ -412,16 +412,24 @@ input[type="number"]{
   flex-direction: column;
   margin-left: auto;
   margin-right: auto;
+  flex-wrap: wrap;
   padding-left: auto;
   padding-right: auto;
-  width: 600px;
+  width: 400px;
   background: #99f5f8;
   padding: 10px;
   border-radius: 25px;
 }
 
+#display-container {
+  margin: 10px;
+  width: 400px;
+  overflow-y: scroll;
+  overflow-x: scroll;
+}
+
 #display {
-  overflow-x: auto;
+  display: block;
 }
 
 .pass-form {

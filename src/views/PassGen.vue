@@ -68,7 +68,9 @@
       </button>
     </form>
     <div v-if="result != ''">
-      <h4 id="display">Password will be displayed here: {{ result }}</h4>
+      <div id="display-container">
+        <h4 id="display">Password will be displayed here: {{ result }}</h4>
+      </div>
       <button id="copyButton" class="auth-btn" @click="copyPassword">Copy Password</button>
     </div>
     <div v-else>
@@ -101,6 +103,10 @@ export default {
       const length = parseInt(this.number);
       let characterSet = "";
 
+      if(this.useLowercase == false && this.useUppercase == false && this.useNumbers == false && this.useEasySymbols == false && this.useConfusingSymbols == false){
+        alert("Please select an option.")
+        return
+      }
       if (this.useLowercase) {
         characterSet += this.lowercase;
       }

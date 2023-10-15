@@ -1,14 +1,14 @@
 <template>
-  <div class="home">
-    <img alt="Passvault logo" src="../assets/passvault2.png"/>
-    <button
-      @click="this.$router.push({ name: 'login' })"
-      class="auth-btn"
-      style="font-size: 30px; margin-bottom: 5px;"
-    >
-      Get Started
-    </button>
-  </div>
+    <div class="home">
+      <img alt="Passvault logo" src="../assets/passvault2.png"/>
+      <button
+        @click="this.$router.push({ name: 'login' })"
+        class="auth-btn"
+        style="font-size: 30px; margin-bottom: 5px;"
+      >
+        Get Started
+      </button>
+    </div>
   <h2 style="font-size: 60px;">What is PassVault?</h2>
   <p style="font-size: 40px;">
     PassVault was created to provide users with a safe place to store one's
@@ -32,6 +32,7 @@ export default {
 
 <style scoped>
 .home {
+  display: grid;
   background-color: rgb(122, 140, 255);
 }
 
@@ -39,5 +40,10 @@ export default {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  width: 400px;
+}
+
+.home btn{
+  margin-left: 500px;
 }
 </style>
