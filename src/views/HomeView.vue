@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Passvault logo" src="../assets/passvault2.png" style="margin-left: 400px;"/>
+    <img alt="Passvault logo" src="../assets/passvault2.png"/>
     <button
       @click="this.$router.push({ name: 'login' })"
       class="auth-btn"
@@ -15,7 +15,7 @@
     passwords and important information. PassVault allows you to store groups of passwords in folders allowing for simple navigation. 
   </p>
   <span style="font-size: 30px; background-color: rgb(243, 247, 2); font-weight: bold;">Keep in mind that this was a project
-    made for fun to learn vue. Use at your own risk.</span>
+    made for fun to learn vue. Use with caution.</span>
 </template>
 
 <script>
@@ -32,7 +32,12 @@ export default {
 
 <style scoped>
 .home {
-  
   background-color: rgb(122, 140, 255);
+}
+
+.home img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>
