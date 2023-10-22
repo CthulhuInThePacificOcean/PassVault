@@ -251,7 +251,8 @@ body {
   align-self: center;
   flex-direction: column;
   background-color: aquamarine;
-  width: 400px;
+  width: 98%;
+  max-width: 400px;
   text-align: center;
   border: 2px dashed #757575;
   border-radius: 15px;
