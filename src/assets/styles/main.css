@@ -247,6 +247,9 @@ body {
 }
 
 .info {
+  display: flex;
+  align-self: center;
+  flex-direction: column;
   background-color: aquamarine;
   width: 400px;
   text-align: center;
@@ -415,7 +418,8 @@ input[type="number"]{
   flex-wrap: wrap;
   padding-left: auto;
   padding-right: auto;
-  width: 400px;
+  width: 95%;
+  max-width: 600px;
   background: #99f5f8;
   padding: 10px;
   border-radius: 25px;
